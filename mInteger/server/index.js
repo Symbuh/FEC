@@ -23,6 +23,18 @@ app.get("/api/transactions", (req, res) => {
     res.send(data);
   })
 });
+
+app.patch("/api/transactions", (req, res) => {
+  //console.log(req.body);
+  db.getCategory(req.body.data, (err, data) => {
+    if(err) {
+      res.send(err);
+      return;
+    }
+    res.send(data);
+  })
+})
+
 app.post("/api/categories", (req, res) => {
   console.log(req.body);
   db.postCategory(req.body, (err, data) => {
