@@ -18,11 +18,31 @@ app.get("/api/transactions", (req, res) => {
   db.getAllTransactions((err, data) => {
     if(err) {
       res.send(err);
+      return;
     }
     res.send(data);
   })
 });
+app.post("/api/categories", (req, res) => {
+  console.log(req.body);
+  db.postCategory(req.body, (err, data) => {
+    if(err) {
+      res.send(err);
+      return;
+    }
+    res.send(data);
+  })
+})
 
+app.get("/api/categories", (req, res) => {
+  db.getCategories((err, data) => {
+    if(err) {
+      res.send(err);
+      return;
+    }
+    res.send(data);
+  })
+})
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

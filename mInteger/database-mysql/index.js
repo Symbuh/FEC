@@ -15,6 +15,32 @@ const getAllTransactions = function(callback) {
   })
 };
 
+const postCategory = function(data, callback) {
+  connection.query(`INSERT INTO categories (categoryName, categoryBudget) VALUES ("${data.categoryName}", "${data.categoryBudget}");`, function (err, data) {
+    if (err) {
+      callback('Failed to insert data', null);
+      return
+    }
+    connection.query('SELECT * FROM categories', function(err, data) {
+      if (err) {
+        callback('Failed to insert data', null);
+      }
+      callback(null, data);
+    })
+  })
+}
+
+const getCategories = function(callback) {
+  connection.query('SELECT * FROM categories', function(err, data) {
+    if (err) {
+      callback('Failed to retrieve data', null);
+    }
+    callback(null, data);
+  })
+}
+
 module.exports = {
-  getAllTransactions
+  getAllTransactions,
+  postCategory,
+  getCategories
 };

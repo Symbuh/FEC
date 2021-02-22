@@ -1,8 +1,8 @@
 import React from 'react';
+import Transactions from './Transactions.jsx';
 
 
 const TransactionList = (props) => {
-  //debugger
   if(props.data === '') {
     return (<div>
 
@@ -16,21 +16,19 @@ const TransactionList = (props) => {
           <div className="txn-data">Date</div>
           <div className="txn-data">Description</div>
           <div className="txn-data">Amount</div>
+          <div className="txn-data">Category</div>
         </div>
         {
           props.data.map((transaction) => {
             return (
-              <div className="txn-row" key={transaction.id}>
-                  <div className="txn-data">{transaction.date}</div>
-                  <div className="txn-data">{transaction.description}</div>
-                  <div className="txn-data">{transaction.amount}</div>
-              </div>
+              <Transactions key={transaction.id} transaction={transaction} categories={props.categories}/>
             )
           })
         }
     </div>
     </div>
   );
+
 }
 
 export default TransactionList;

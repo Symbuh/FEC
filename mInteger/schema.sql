@@ -4,24 +4,35 @@ CREATE DATABASE minteger;
 
 USE minteger;
 
+
+CREATE TABLE categories (
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  categoryName varchar(20) NOT NULL UNIQUE,
+  categoryBudget int NOT NULL
+);
+
 CREATE TABLE transactions (
   id int NOT NULL AUTO_INCREMENT,
   date date,
   amount decimal(10, 2) NOT NULL,
   description varchar(50) NOT NULL,
   category_id int,
+  INDEX category_id (category_id),
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE cascade,
   PRIMARY KEY (ID)
-);
+) ENGINE=INNODB;
+
+
 
 /*  Execute this file from the command line by typing:
  *    mysql -u <USER> < schema.sql
  *    OR
  *    mysql -u <USER> -p < schema.sql
- *  For example, on a pairing station, it'll be 
+ *  For example, on a pairing station, it'll be
  *    mysql -u student -p < schema.sql
  *  and then you'll have to enter the password, student
  *  On your personal computer, if you haven't set up
- *  a password, it'll be 
+ *  a password, it'll be
  *    mysql -u root < schema.sql
 */
 
@@ -45,3 +56,4 @@ INSERT INTO transactions (id, amount, description, date) VALUES (17, -9.99, "SPO
 INSERT INTO transactions (id, amount, description, date) VALUES (18, -3.85, "EQUATOR", "2017-08-20");
 INSERT INTO transactions (id, amount, description, date) VALUES (19, -18.00, "AMC", "2017-08-21");
 INSERT INTO transactions (id, amount, description, date) VALUES (20, -11.42, "TARGET", "2017-08-22");
+
