@@ -16,7 +16,12 @@ You will create a full-stack application that helps users get better at budgetin
 To check the version of the installed MySQL server: on Mac run `mysql_config --version` in the terminal; on Windows run `mysql -V` in the terminal and check the value printed for `Distrib`. **If you are running something other than 8.x, you must speak with your Technical Mentor before you can move on.**
 
 HOW TO START THIS APP
-* *[Modify this section to tell graders how to start your app]*
+* *[
+  1. Navigate into the mInteger directory
+  2. Run NPM install in the terminal
+  3. Run NPM start
+  4. navigate to localhost:3000 in the browser
+]*
 
 By design, this assessment contains more work than you will be able to complete in a day, so don't be concerned about not completing all of the steps below. Rather, please work on the following steps **in order**, moving on to the next step only after the one you are working on is complete. **Commit frequently** with informative messages. While there are instructions to commit at the end of each step, these should not be your only commits.
 
@@ -24,11 +29,11 @@ By design, this assessment contains more work than you will be able to complete 
 
 ### Before You Begin
 **Complete these setup tasks**:
-- [ ] Inside this directory in your terminal, run `git remote rm origin` to prevent yourself from accidentally pushing your code during the assessment.
-- [ ] Run `npm install` inside this directory to install dependencies.
-- [ ] Ensure that MySQL server is running on your computer (`sudo service mysql status`).
-- [ ] Create the database and tables using the provided `schema.sql`, following the directions provided in the comments to populate your database.
-- [ ] Serve your application from the provided Express web server.
+- [x] Inside this directory in your terminal, run `git remote rm origin` to prevent yourself from accidentally pushing your code during the assessment.
+- [x] Run `npm install` inside this directory to install dependencies.
+- [x] Ensure that MySQL server is running on your computer (`sudo service mysql status`).
+- [x] Create the database and tables using the provided `schema.sql`, following the directions provided in the comments to populate your database.
+- [x] Serve your application from the provided Express web server.
   - Start your application with two commands, `npm run build:dev` and `npm run start:dev`, in two separate terminal tabs. For more information about Webpack, read the comments in `webpack.config.js` or take a look at [the Webpack Docs](https://webpack.github.io/docs/).
 
 **WHEN THESE TASKS ARE COMPLETE:** proceed to Step One.
@@ -56,7 +61,14 @@ By design, this assessment contains more work than you will be able to complete 
 > As a user, I expect to see a list of categories to help me plan my budget.
 
 > As a user, I want to add customized categories to my list to better reflect my spending habits.
-
+iv className="txn">
+    <h3>Transactions</h3>
+    <div className="txn-table">
+      <div className="txn-header txn-row">
+        <div className="txn-data">Date</div>
+        <div className="txn-data">Description</div>
+        <div className="txn-data">Amount</div>
+      </div>
 ![step two][two]
 
 **Implement these user stories by doing the following:**
@@ -123,9 +135,9 @@ By design, this assessment contains more work than you will be able to complete 
 > As a user, I want to be upload my transaction data directly.
 
 **Implement this user story by doing the following:**
-- [ ] Use the [HTML File input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) to allow the user to upload a file on the client. Do NOT use a pre-built React component.
-- [ ] Send that file to your Express server, parse the CSV file, and save that data in your database. You may use an npm module to assist with parsing the CSV file.
-- [ ] Create or modify any new components, helper functions, server routes, or database functions as necessary.
+- [x] Use the [HTML File input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) to allow the user to upload a file on the client. Do NOT use a pre-built React component.
+- [x] Send that file to your Express server, parse the CSV file, and save that data in your database. You may use an npm module to assist with parsing the CSV file.
+- [x] Create or modify any new components, helper functions, server routes, or database functions as necessary.
 
 ---
 

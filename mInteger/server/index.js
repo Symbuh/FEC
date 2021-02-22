@@ -11,6 +11,16 @@ app.use(express.static(__dirname + "/../client/dist"));
 
 app.get("/api/transactions", (req, res) => {
   //TODO - your code here!
+  /*
+    1. get all data from the server
+  */
+  //res.send('hello');
+  db.getAllTransactions((err, data) => {
+    if(err) {
+      res.send(err);
+    }
+    res.send(data);
+  })
 });
 
 app.listen(PORT, () => {
