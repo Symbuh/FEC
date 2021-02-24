@@ -1,5 +1,5 @@
 import React from 'react';
-import reactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
 // this is where we're call reactDOM.render and define our entry point to the
 // app.
